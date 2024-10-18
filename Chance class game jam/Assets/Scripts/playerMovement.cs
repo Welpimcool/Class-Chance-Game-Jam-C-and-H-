@@ -7,6 +7,7 @@ public class Playermovement : MonoBehaviour
     public float walkSpeed = 5f;
     float curSpeed;
     Rigidbody rb;
+    Vector3 movementDirection;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,5 +22,12 @@ public class Playermovement : MonoBehaviour
 			rb.velocity.y,
 			Mathf.Lerp(0, Input.GetAxis("Vertical")* curSpeed, 0.8f)
 		);
+        movementDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        movementDirection.Normalize();
+        if(movementDirection != Vector3.zero)
+        {
+            transform.forward = movementDirection;
+        }
+            
     }
 }
