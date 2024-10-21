@@ -4,12 +4,21 @@ using UnityEngine;
 
 public class Playermovement : MonoBehaviour
 {
+    public static GameObject instance;
+
+    private void Awake() {
+        instance = this.gameObject;
+    }
+
     public float walkSpeed = 5f;
-    float curSpeed;
-    Rigidbody rb;
+    private float curSpeed;
+    private Rigidbody rb;
+    public int health;
+    public int maxHealth;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        health = maxHealth;
     }
 
     // Update is called once per frame

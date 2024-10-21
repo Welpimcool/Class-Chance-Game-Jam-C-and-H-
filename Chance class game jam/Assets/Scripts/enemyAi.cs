@@ -9,7 +9,7 @@ public class enemyAi : MonoBehaviour
 {
     public int maxHealth = 5;
     private int health;
-    public GameObject destination;
+    private GameObject destination;
     public NavMeshAgent agent;
     public Rigidbody body;
     public CapsuleCollider capsule;
@@ -23,6 +23,7 @@ public class enemyAi : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         body = GetComponent<Rigidbody>();
         capsule = GetComponent<CapsuleCollider>();
+        destination = Playermovement.instance;
         health = maxHealth;
     }
 
