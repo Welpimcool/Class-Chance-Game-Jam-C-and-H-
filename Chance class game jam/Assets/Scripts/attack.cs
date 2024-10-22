@@ -7,6 +7,8 @@ public class attack : MonoBehaviour
 {
     private BoxCollider hitbox;
     private MeshRenderer render;
+    private Vector3 facingDirection;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +23,14 @@ public class attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        facingDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        facingDirection.Normalize();
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if (facingDirection != Vector3.zero)
+            {
+                transform.forward = facingDirection;
+            }
             StartCoroutine(Rotate());
         }
     }
@@ -30,6 +38,7 @@ public class attack : MonoBehaviour
     {
         render.enabled = true;
         hitbox.enabled = true;
+        transform.Rotate(0, -55.0f, 0, Space.Self);
         for (int i = 0; i <22; i++)
         {
             transform.Rotate(0, 5.0f, 0, Space.Self);
