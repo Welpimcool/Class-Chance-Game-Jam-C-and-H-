@@ -30,6 +30,7 @@ public class attack : MonoBehaviour
             if (facingDirection != Vector3.zero)
             {
                 transform.forward = facingDirection;
+                transform.Rotate(0, -55.0f, 0, Space.Self);
             }
             StartCoroutine(Rotate());
         }
@@ -38,7 +39,6 @@ public class attack : MonoBehaviour
     {
         render.enabled = true;
         hitbox.enabled = true;
-        transform.Rotate(0, -55.0f, 0, Space.Self);
         for (int i = 0; i <22; i++)
         {
             transform.Rotate(0, 5.0f, 0, Space.Self);

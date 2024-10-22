@@ -377,6 +377,7 @@
 "Assets/Scripts/enemyAi.cs"
 "Assets/Scripts/enemySpawner.cs"
 "Assets/Scripts/playerMovement.cs"
+"Assets/Scripts/teleportToMap.cs"
 -langversion:9.0
 /deterministic
 /optimize+

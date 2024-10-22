@@ -23,7 +23,7 @@ public class enemySpawner : MonoBehaviour
     }
 
     private void spawnEnemy() {
-        int randomInt = UnityEngine.Random.Range(1,spawners.Length+1);
+        int randomInt = UnityEngine.Random.Range(0,spawners.Length+1);
         Transform randomSpawner = spawners[randomInt];
         Instantiate(enemy, randomSpawner.position,randomSpawner.rotation);
     }
