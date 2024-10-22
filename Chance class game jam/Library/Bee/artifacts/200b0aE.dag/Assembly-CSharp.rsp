@@ -375,6 +375,7 @@
 "Assets/Scripts/Billboarding.cs"
 "Assets/Scripts/enemyAi.cs"
 "Assets/Scripts/enemySpawner.cs"
+"Assets/Scripts/healthBar.cs"
 "Assets/Scripts/playerMovement.cs"
 -langversion:9.0
 /deterministic
