@@ -13,12 +13,14 @@ public class Playermovement : MonoBehaviour
     public float walkSpeed = 5f;
     private float curSpeed;
     private Rigidbody rb;
-    public int health;
-    public int maxHealth;
+    private int health;
+    public int maxHealth = 5;
+    public healthBar UIHealthBar;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         health = maxHealth;
+        UIHealthBar.setMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
@@ -30,11 +32,28 @@ public class Playermovement : MonoBehaviour
 			rb.velocity.y,
 			Mathf.Lerp(0, Input.GetAxis("Vertical")* curSpeed, 0.8f)
 		);
+
+
+        if (Input.GetKeyDown(KeyCode.O)) {
+            onHit();
+        } else if (Input.GetKeyDown(KeyCode.P)) {
+            onHeal();
+        }
+
+
     }
+
+
+
+
+
+
+
 
     void onHit(){
         Debug.Log("player hit");
         health -= 1;
+        UIHealthBar.setHealth(health);
         if (health <= 0) {
             die();
         }
@@ -42,10 +61,22 @@ public class Playermovement : MonoBehaviour
     void onHit(int damage){
         Debug.Log("player hit");
         health -= damage;
+        UIHealthBar.setHealth(health);
         if (health <= 0) {
             die();
         }
     }
+    void onHeal() {
+        Debug.Log("player healed");
+        health += 1;
+        UIHealthBar.setHealth(health);
+    }
+    void onHeal(int heal) {
+        Debug.Log("player healed");
+        health += heal;
+        UIHealthBar.setHealth(health);
+    }
+
     void die() {
         Debug.Log("player died :(");
     }
