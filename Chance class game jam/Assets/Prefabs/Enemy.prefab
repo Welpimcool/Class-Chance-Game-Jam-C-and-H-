@@ -205,11 +205,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  destination: {fileID: 0}
   agent: {fileID: 1938788941269012181}
   body: {fileID: 0}
   capsule: {fileID: 0}
   weaponTag: Weapon
+  playerTag: Player
 --- !u!1 &5406760845790682471
 GameObject:
   m_ObjectHideFlags: 0
