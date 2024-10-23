@@ -50,7 +50,7 @@ public class Playermovement : MonoBehaviour
 
 
 
-    void onHit(){
+    public void onHit(){
         Debug.Log("player hit");
         health -= 1;
         UIHealthBar.setHealth(health);
@@ -58,7 +58,7 @@ public class Playermovement : MonoBehaviour
             die();
         }
     }
-    void onHit(int damage){
+    public void onHit(int damage){
         Debug.Log("player hit");
         health -= damage;
         UIHealthBar.setHealth(health);
@@ -66,12 +66,12 @@ public class Playermovement : MonoBehaviour
             die();
         }
     }
-    void onHeal() {
+    public void onHeal() {
         Debug.Log("player healed");
         health += 1;
         UIHealthBar.setHealth(health);
     }
-    void onHeal(int heal) {
+    public void onHeal(int heal) {
         Debug.Log("player healed");
         health += heal;
         UIHealthBar.setHealth(health);

@@ -14,6 +14,7 @@ public class enemyAi : MonoBehaviour
     public Rigidbody body;
     public CapsuleCollider capsule;
     public string weaponTag;
+    public string playerTag;
     // public Bullet bulletPrefab;
     
     // Start is called before the first frame update
@@ -38,6 +39,9 @@ public class enemyAi : MonoBehaviour
         if (collision.gameObject.tag == weaponTag) {
             onHit();
         }
+        if (collision.gameObject.tag == playerTag) {
+            onAttack(collision);
+        }
     }
 
     void onHit(){
@@ -53,6 +57,17 @@ public class enemyAi : MonoBehaviour
             die();
         }
     }
+
+    void onAttack(Collider collision) {
+        collision.gameObject.GetComponent<Playermovement>().onHit();
+    }
+
+    void onAttack(Collider collision,int damage) {
+        collision.gameObject.GetComponent<Playermovement>().onHit(damage);
+    }
+
+
+
     void die() {
         Debug.Log("enemy died");
         gameObject.SetActive(false);
