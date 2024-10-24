@@ -55,7 +55,7 @@ public class Playermovement : MonoBehaviour
 
     void FixedUpdate() { //movement
         curCooldown += 2f*Time.fixedDeltaTime;
-        if (!dash && curCooldown > cooldown && Input.GetKey(KeyCode.LeftShift)) {
+        if (!dash && !fatigue && curCooldown > cooldown && Input.GetKey(KeyCode.LeftShift)) {
             Debug.Log("Dash start");
             dash = true;
             curCooldown = 0f;
