@@ -11,11 +11,26 @@ public class Playermovement : MonoBehaviour
     }
 
     public float walkSpeed = 5f;
+
     private float curSpeed;
+
     private Rigidbody rb;
+
     private int health;
+
     public int maxHealth = 5;
+
     public healthBar UIHealthBar;
+
+
+    private Vector3 movement;
+
+    public float cooldown = 3f;
+    private float curCooldown;
+    private bool dash;
+    private bool fatigue;
+    public float fatigueCool = 1f;
+    private float fatigueCurCool;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -24,15 +39,10 @@ public class Playermovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //Input
     {
-        curSpeed = walkSpeed;
-        rb.velocity = new Vector3(
-			Mathf.Lerp(0, Input.GetAxis("Horizontal")* curSpeed, 0.8f),
-			rb.velocity.y,
-			Mathf.Lerp(0, Input.GetAxis("Vertical")* curSpeed, 0.8f)
-		);
-
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.z = Input.GetAxisRaw("Vertical");
 
         if (Input.GetKeyDown(KeyCode.O)) {
             onHit();
@@ -43,7 +53,42 @@ public class Playermovement : MonoBehaviour
 
     }
 
+    void FixedUpdate() { //movement
+        curCooldown += 2f*Time.fixedDeltaTime;
+        if (!dash && curCooldown > cooldown && Input.GetKey(KeyCode.LeftShift)) {
+            Debug.Log("Dash start");
+            dash = true;
+            curCooldown = 0f;
+        } else if (dash && curCooldown < cooldown) {
+            //while dashing
+        } else if (dash){
+            Debug.Log("Dash end");
+            dash = false;
+            fatigue = true;
+        }
 
+        if(fatigue) {
+            fatigueCurCool += 2f*Time.fixedDeltaTime;
+            if (fatigueCurCool > fatigueCool) {
+                fatigue = false;
+                Debug.Log("Fatigue end");
+                fatigueCurCool = 0f;
+            }
+        }
+
+        
+        
+        if (dash) {
+            curSpeed = walkSpeed*2;
+        } else if (fatigue) {
+            curSpeed = walkSpeed/2;
+        } else {
+            curSpeed = walkSpeed;
+        }
+            
+        
+        rb.MovePosition(rb.position + movement * curSpeed * Time.fixedDeltaTime);
+    }
 
 
 

@@ -6191,9 +6191,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9006004590045446009, guid: b137c09ad7c3c43e2807c8795a2e842f, type: 3}
+      propertyPath: cooldown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006004590045446009, guid: b137c09ad7c3c43e2807c8795a2e842f, type: 3}
+      propertyPath: walkSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006004590045446009, guid: b137c09ad7c3c43e2807c8795a2e842f, type: 3}
       propertyPath: UIHealthBar
       value: 
       objectReference: {fileID: 165321274}
+    - target: {fileID: 9006004590045446009, guid: b137c09ad7c3c43e2807c8795a2e842f, type: 3}
+      propertyPath: fatigueCool
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
