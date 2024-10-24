@@ -59,11 +59,11 @@ public class enemyAi : MonoBehaviour
     }
 
     void onAttack(Collider collision) {
-        collision.gameObject.GetComponent<Playermovement>().onHit();
+        collision.gameObject.GetComponent<Playermovement>().onHit(collision);
     }
 
     void onAttack(Collider collision,int damage) {
-        collision.gameObject.GetComponent<Playermovement>().onHit(damage);
+        collision.gameObject.GetComponent<Playermovement>().onHit(damage,collision);
     }
 
 

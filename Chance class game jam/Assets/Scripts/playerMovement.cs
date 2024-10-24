@@ -26,7 +26,7 @@ public class Playermovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        curSpeed = walkSpeed;        
+        curSpeed = walkSpeed;
         rb.velocity = new Vector3(
 			Mathf.Lerp(0, Input.GetAxis("Horizontal")* curSpeed, 0.8f),
 			rb.velocity.y,
@@ -49,19 +49,32 @@ public class Playermovement : MonoBehaviour
 
 
 
-
     public void onHit(){
         Debug.Log("player hit");
         health -= 1;
         UIHealthBar.setHealth(health);
+        // rb.velocity = new Vector3(Input.GetAxis("Horizontal") * 3, 0, Input.GetAxis("Vertical") * 3) * -1;
+        // Debug.Log(new Vector3(Input.GetAxis("Horizontal") * 3, 0, Input.GetAxis("Vertical") * 3) * -1);
         if (health <= 0) {
             die();
         }
     }
-    public void onHit(int damage){
+    public void onHit(Collider collision){
+        Debug.Log("player hit");
+        health -= 1;
+        UIHealthBar.setHealth(health);
+        // rb.velocity = new Vector3(Input.GetAxis("Horizontal") * 20, 0, Input.GetAxis("Vertical") * 20) * -1;
+        // Debug.Log(new Vector3(Input.GetAxis("Horizontal") * 20, 0, Input.GetAxis("Vertical") * 20) * -1);
+        if (health <= 0) {
+            die();
+        }
+    }
+    public void onHit(int damage, Collider collision){
         Debug.Log("player hit");
         health -= damage;
         UIHealthBar.setHealth(health);
+        // rb.velocity = new Vector3(Input.GetAxis("Horizontal") * 3, 0, Input.GetAxis("Vertical") * 3) * -1;
+        // Debug.Log(new Vector3(Input.GetAxis("Horizontal") * 3, 0, Input.GetAxis("Vertical") * 3) * -1);
         if (health <= 0) {
             die();
         }
