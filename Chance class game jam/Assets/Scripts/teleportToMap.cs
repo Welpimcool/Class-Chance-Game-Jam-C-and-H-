@@ -19,11 +19,8 @@ public class teleportToMap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            mapNum += 1;
-            if (mapNum > test.Length-1) {
-                mapNum = 0;
-            }
-            teleport(test[mapNum],offset);
+            nextMap();
+            spawnEnemy(test[mapNum]);
         }
     }
     void teleport(GameObject location,int offset)
@@ -35,5 +32,21 @@ public class teleportToMap : MonoBehaviour
     }
     public int getMapNum() {
         return mapNum;
+    }
+    public void nextMap()
+    {
+        mapNum += 1;
+        if (mapNum > test.Length - 1)
+        {
+            mapNum = 0;
+        }
+        teleport(test[mapNum], offset);
+    }
+    public void spawnEnemy(GameObject map)
+    {
+        for (int i = 0; i < UnityEngine.Random.Range(2, 6); i++)
+        {
+            map.GetComponentInChildren<enemySpawner>().spawnEnemy();
+        }
     }
 }

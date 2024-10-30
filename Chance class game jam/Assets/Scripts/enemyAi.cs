@@ -70,6 +70,6 @@ public class enemyAi : MonoBehaviour
 
     void die() {
         Debug.Log("enemy died");
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
