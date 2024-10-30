@@ -7,6 +7,9 @@ public class healthBar : MonoBehaviour
 {
     public Slider hpSlider;
     public Image deathScreen;
+    public Image deathScreen2;
+    private float Timer = 0f;
+    public float MaxTime = 3f;
     public void setMaxHealth(int maxHp) {
         hpSlider.maxValue = maxHp;
         hpSlider.value = maxHp;
@@ -18,12 +21,18 @@ public class healthBar : MonoBehaviour
     public void start()
     {
         deathScreen.enabled = false;
+        deathScreen2.enabled = false;
     }
     public void Update()
     {
         if (hpSlider.value <= 0)
         {
             deathScreen.enabled = true;
+            if (Timer < MaxTime) {
+                Timer += Time.deltaTime;
+            } else {
+                deathScreen2.enabled = true;
+            }
         }
     }
 
