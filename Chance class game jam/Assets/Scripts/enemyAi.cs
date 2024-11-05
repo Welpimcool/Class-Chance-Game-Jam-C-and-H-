@@ -7,8 +7,8 @@ using UnityEngine.AI;
 
 public class enemyAi : MonoBehaviour
 {
-    public int maxHealth = 5;
-    private int health;
+    public float maxHealth = 5;
+    private float health;
     private GameObject destination;
     public NavMeshAgent agent;
     public Rigidbody body;
@@ -37,7 +37,7 @@ public class enemyAi : MonoBehaviour
     void OnTriggerEnter(Collider collision) {
         Debug.Log("trigger entered");
         if (collision.gameObject.tag == weaponTag) {
-            onHit();
+            onHit(collision.gameObject.GetComponent<attack>().getDamage());
         }
         if (collision.gameObject.tag == playerTag) {
             onAttack(collision);
@@ -51,7 +51,7 @@ public class enemyAi : MonoBehaviour
             die();
         }
     }
-    void onHit(int damage){
+    void onHit(float damage){
         health -= damage;
         if (health <= 0) {
             die();

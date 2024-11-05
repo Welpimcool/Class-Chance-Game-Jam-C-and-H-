@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e80432473452174295f02ce336d026f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCooldown: 0
 --- !u!1 &3311311128977398251
 GameObject:
   m_ObjectHideFlags: 0
@@ -264,6 +265,8 @@ MonoBehaviour:
   walkSpeed: 5
   maxHealth: 5
   UIHealthBar: {fileID: 0}
+  cooldown: 3
+  fatigueCool: 1
 --- !u!54 &5888298906885647766
 Rigidbody:
   m_ObjectHideFlags: 0
