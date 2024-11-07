@@ -24,11 +24,15 @@ public class attack : MonoBehaviour
         hitbox.enabled = false;
         currentCooldown = attackCooldown;
         //Stats in order: [Damage, Speed, Range]
-        weaponPresets = new float[,] { {1, .4f, 2}, {  .75f, .25f, 1f}, {2, .8f, 3} };
-        weapon = UnityEngine.Random.Range(0, weaponPresets.Length);
+        weaponPresets = new float[,] { {1, .4f, 1}, {  .75f, .2f, .5f}, {2, .8f, 1.25f}, { 3, 1.2f, 1.5f },{ 0.75f, .4f, 1.75f } };
+        weapon = UnityEngine.Random.Range(0, 5);
+        Debug.Log(weapon);
         damage = weaponPresets[weapon, 0];
         attackCooldown = weaponPresets[weapon, 1];
         range = weaponPresets[weapon, 2];
+        
+        Debug.Log(weapon);
+        
 
 
         transform.Rotate(0, -55.0f, 0, Space.Self);
@@ -59,6 +63,7 @@ public class attack : MonoBehaviour
         hitbox.enabled = true;
         for (int i = 0; i <22; i++)
         {
+            
             transform.Rotate(0, 5.0f, 0, Space.Self);
             yield return new WaitForSeconds(.01f);
         }

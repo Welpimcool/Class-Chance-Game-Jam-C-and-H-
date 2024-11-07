@@ -37,7 +37,7 @@ public class enemyAi : MonoBehaviour
     void OnTriggerEnter(Collider collision) {
         Debug.Log("trigger entered");
         if (collision.gameObject.tag == weaponTag) {
-            onHit(collision.gameObject.GetComponent<attack>().getDamage());
+            onHit(collision.gameObject.GetComponentInParent<attack>().getDamage());
         }
         if (collision.gameObject.tag == playerTag) {
             onAttack(collision);

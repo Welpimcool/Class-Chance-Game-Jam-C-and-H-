@@ -373,6 +373,7 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.43f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.43f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/attack.cs"
+"Assets/Scripts/attack2ElectricBoogaloo.cs"
 "Assets/Scripts/Billboarding.cs"
 "Assets/Scripts/death.cs"
 "Assets/Scripts/enemyAi.cs"
@@ -380,6 +381,7 @@
 "Assets/Scripts/healthBar.cs"
 "Assets/Scripts/playerMovement.cs"
 "Assets/Scripts/teleportToMap.cs"
+"Assets/weaponStats.cs"
 -langversion:9.0
 /deterministic
 /optimize+
